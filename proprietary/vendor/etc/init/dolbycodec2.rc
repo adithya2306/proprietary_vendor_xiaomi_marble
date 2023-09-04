@@ -1,7 +1,6 @@
-service vendor-dolby-media-c2-hal-1-0 /vendor/bin/hw/vendor.dolby.media.c2@1.0-service
+service dolbycodec2 /vendor/bin/hw/dolbycodec2
     class hal
     user mediacodec
     group camera mediadrm drmrpc
     ioprio rt 4
     writepid /dev/cpuset/foreground/tasks
-
