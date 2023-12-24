@@ -1,4 +1,4 @@
-# Copyright (c) 2017 Xiaomi, Inc.
+# Copyright (c) 2017-2022 Xiaomi, Inc.
 # All Rights Reserved.
 # Confidential and Proprietary - Xiaomi, Inc.
 #
@@ -70,17 +70,40 @@ on boot
     chmod 0664 /sys/class/touch/touch_dev/hold_sensor
     chown system system /proc/tp_hal_version
     chmod 0664 /proc/tp_hal_version
+    chown system system /proc/tp_lockdown_info
+    chmod 0664 /proc/tp_lockdown_info
     chmod 0664 /sys/class/touch/touch_dev/touch_active_status
     chown system system /sys/class/touch/touch_dev/touch_active_status
     chmod 0664 /sys/class/touch/touch_dev/touch_finger_status
     chown system system /sys/class/touch/touch_dev/touch_finger_status
     chmod 0664 /sys/class/touch/touch_dev/touch_irq_no
     chown system system /sys/class/touch/touch_dev/touch_irq_no
+    chmod 0664 /sys/class/touch/touch_dev/touch_sensor
+    chown system system /sys/class/touch/touch_dev/touch_sensor
+    chmod 0664 /sys/class/touch/touch_dev/touch_sensor_ctrl
+    chown system system /sys/class/touch/touch_dev/touch_sensor_ctrl
     chmod 0664 /sys/class/touch/touch_dev/touch_thp_film
     chown system system /sys/class/touch/touch_dev/touch_thp_film
     chmod 0664 /sys/class/touch/touch_dev/touch_thp_mem_notify
     chown system system /sys/class/touch/touch_dev/touch_thp_mem_notify
-
+    chmod 0666 /dev/mipp_pen0
+    chown system system /dev/mipp_pen0
+    chmod 0664 /sys/class/touch/touch_dev/touch_thp_testmode
+    chown system system /sys/class/touch/touch_dev/touch_thp_testmode
+    chmod 0664 /sys/class/touch/touch_dev/touch_thp_testresult
+    chown system system /sys/class/touch/touch_dev/touch_thp_testresult
+    chmod 0664 /sys/class/touch/touch_dev/touch_thp_preset_point
+    chown system system /sys/class/touch/touch_dev/touch_thp_preset_point
+    chmod 0664 /sys/class/touch/touch_dev/touch_doze_analysis
+    chown system system /sys/class/touch/touch_dev/touch_doze_analysis
+    chown system system /sys/class/touch/touch_dev/touch_thp_cmd_ready
+    chmod 0664 /sys/class/touch/touch_dev/touch_thp_cmd_ready
+    chmod 0664 /sys/class/touch/touch_dev/touch_ic_buffer
+    chown system system /sys/class/touch/touch_dev/touch_ic_buffer
+    chmod 0664 /sys/class/touch/touch_dev/abnormal_event
+    chown system system /sys/class/touch/touch_dev/abnormal_event
+on charger
+    write /sys/class/touch/touch_dev/touch_doze_analysis 6
 
 service touchfeature_v2-hal-1-0 /vendor/bin/hw/vendor.xiaomi.hw.touchfeature@1.0-service
     class hal
